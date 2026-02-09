@@ -67,7 +67,7 @@ class StereogramConverter:
         :param draw_helper_dots: a boolean flag to decide whether to draw the helper black dots.
         :return:
         """
-        self._validate_input_type(depth_map, texture)
+        # self._validate_input_type(depth_map, texture)
         [image_height, image_width] = depth_map.shape
         [texture_width, texture_height] = texture.shape
         image_data = self._preprocess_image_data(depth_map, texture_width)
@@ -91,7 +91,7 @@ class StereogramConverter:
         :param draw_helper_dots: a boolean flag to decide whether to draw the helper black dots.
         :return:
         """
-        self._validate_input_type(depth_map, texture)
+        # self._validate_input_type(depth_map, texture)
         if texture.ndim != 3:
             raise Exception("Texture patch should be have 3 dimensions, i.e. [height, width, 3]")
 
