@@ -153,10 +153,10 @@ class StereogramConverter:
         return image_data
 
     def _validate_input_type(self, depth_map: np.array, texture: np.array):
-        if depth_map.dtype != np.int:
+        if depth_map.dtype != int:
             raise Exception("This method accept depth map with numpy integer values between 0-255, get data type: {}"
                             .format(depth_map.dtype))
-        if texture.dtype != np.int:
+        if texture.dtype != int:
             raise Exception("This method accept texture with numpy integer values between 0-255, get data type: {}"
                             .format(texture.dtype))
 
