@@ -86,17 +86,17 @@ class StereogramConverter:
             draw_helper_dots: bool = False):
         """
         Use ABSIRDS algorithm to compute stereogram of a depth image and a texture patch.
-        :param depth_map: the input depth image to compute stereogram.
-        :param texture: the texture patch of the stereogram(RGB image patch).
+        :param depth_map: Input depth map. Integer type, [0-255]
+        :param texture: RGB image patch, square, integer type, [0-255]
         :param draw_helper_dots: a boolean flag to decide whether to draw the helper black dots.
-        :return:
+        :return: Stereogram. Float, [0-255].
         """
         # self._validate_input_type(depth_map, texture)
         if texture.ndim != 3:
             raise Exception("Texture patch should be have 3 dimensions, i.e. [height, width, 3]")
 
         [image_height, image_width] = depth_map.shape
-        [texture_width, texture_height, texture_num_channel] = texture.shape
+        [texture_height, texture_width, texture_num_channel] = texture.shape
 
         if texture_num_channel != 3:
             raise Exception("Texture patch should have 3 channels.")
