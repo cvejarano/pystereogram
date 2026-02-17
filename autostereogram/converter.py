@@ -161,7 +161,10 @@ class StereogramConverter:
                             .format(texture.dtype))
 
     def _preprocess_image_data(self, image_data: np.array, rand_size: int):
-        # Scale the pixel values and reduce the dept
+        # Pre: invert depth so 0 is far and 255 is near.
+        image_data = 255 - image_data
+
+        # Scale the pixel values and reduce the depth.
         image_data = image_data.max() - image_data
         image_data = np.floor(image_data / image_data.max() * rand_size / 3)
         image_data = image_data.astype(int)
